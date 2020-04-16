@@ -4,9 +4,6 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-import static java.lang.StrictMath.abs;
-import static jdk.nashorn.internal.objects.NativeString.indexOf;
-
 public class TwentyRandomsAlgorithm {
 
     public void swapElements()

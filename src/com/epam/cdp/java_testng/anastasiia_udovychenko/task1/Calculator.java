@@ -5,13 +5,47 @@ import java.util.Scanner;
 public class Calculator {
     public void calc()
         {
-            Scanner scanner = new Scanner(System.in);
             System.out.println("Please enter integer first number: ");
             String firstNumber = dialogMessageForNumber();
             System.out.println("Please enter integer second number: ");
             String secondNumber = dialogMessageForNumber();
             System.out.println("Please enter operation (+, -, * or /): ");
             String operation = dialogMessageForOperation();
+            performCalculationAndReturnResult(firstNumber, secondNumber, operation);
+        }
+
+        public void performCalculationAndReturnResult(String firstNumber, String secondNumber, String operation)
+        {
+            double result;
+            switch(operation)
+            {
+                case "+" :
+                    result = Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber);
+                    System.out.println("The result is: " + result);
+                    break;
+                case "-" :
+                    result = Integer.parseInt(firstNumber) - Integer.parseInt(secondNumber);
+                    System.out.println("The result is: " + result);
+                    break;
+                case "*" :
+                    result = Integer.parseInt(firstNumber) * Integer.parseInt(secondNumber);
+                    System.out.println("The result is: " + result);
+                    break;
+                case "/" :
+                    if (!secondNumber.equals("0"))
+                    {
+                        result = Double.parseDouble(firstNumber) / Double.parseDouble(secondNumber);
+                        //To ask: result = Integer.parseInteger(firstNumber) / Integer.parseInteger(secondNumber) return 0
+                        System.out.println("The result is: " + result);
+                        break;
+                    }
+                    else
+                        System.out.println("Division by zero exception");
+                        break;
+                default :
+                    System.out.println("Interesting, how could I get here");
+                    break;
+            }
         }
 
     public boolean isNumeric(String str)
